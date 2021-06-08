@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/template.css') }}" rel="stylesheet">
+    <title>COVID Chatbot</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <h1 style="font-size: 50; color: azure;">COVID Chatbot</h1>
+    </nav>
+
+  <div class="container">
+    <form action="./" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Query</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name = "query" aria-describedby="emailHelp" placeholder="Enter your query">
+      </div>
+      <button type="submit" class="btn btn-primary">Enter</button>      
+    </form>
+    <div style="text-align: center;">
+      <br>
+      <div class="msg">
+        {% if msg %}
+          {{ msg }}
+        {% endif %}
+        {% if img %}
+          <img id="picture" src="data:image/jpeg;base64,{{ img }}">
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
